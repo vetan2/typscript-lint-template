@@ -1,6 +1,5 @@
-{
+module.exports = {
   "extends": [
-    "next/core-web-vitals",
     "prettier",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -9,46 +8,49 @@
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "plugin:storybook/recommended"
   ],
   "overrides": [
     {
       "extends": [
-        "next/core-web-vitals",
         "prettier",
-        "eslint:recommended"
+        "eslint:recommended",
       ],
       "files": [
         "**/*.js",
-        "**/*.jsx"
+        "**/*.jsx",
       ],
       "plugins": [
-        "prettier"
+        "prettier",
       ],
       "rules": {
         "comma-dangle": [
           "error",
-          "only-multiline"
-        ]
-      }
-    }
+          "only-multiline",
+        ],
+
+        // 알고리즘용
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "func-names": "off",
+      },
+    },
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": [
-      "./tsconfig.json"
-    ]
+      "./tsconfig.json",
+    ],
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier"
+    "prettier",
   ],
   "root": true,
   "rules": {
     "@typescript-eslint/no-empty-interface": "off",
     "comma-dangle": [
       2,
-      "only-multiline"
+      "only-multiline",
     ],
     "import/no-extraneous-dependencies": [
       2,
@@ -56,9 +58,9 @@
         "devDependencies": [
           "**/*.test.*",
           "**/*.stories.*",
-          "**/*.config.*"
-        ]
-      }
+          "**/*.config.*",
+        ],
+      },
     ],
     "import/prefer-default-export": "off",
     "react/display-name": "off",
@@ -66,14 +68,14 @@
       2,
       {
         "namedComponents": "arrow-function",
-        "unnamedComponents": "arrow-function"
-      }
+        "unnamedComponents": "arrow-function",
+      },
     ],
     "react/jsx-props-no-spreading": [
       2,
       {
-        "custom": "ignore"
-      }
+        "custom": "ignore",
+      },
     ],
     "react/prop-types": "off",
     "react/require-default-props": "off",
@@ -81,14 +83,14 @@
       "error",
       {
         "ignore": [
-          "css"
-        ]
-      }
-    ]
+          "css",
+        ],
+      },
+    ],
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
-    }
-  }
-}
+      "typescript": {},
+    },
+  },
+};
